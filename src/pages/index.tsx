@@ -1,6 +1,7 @@
 import Tabela from "@/components/Tabela";
 import Layout from "../components/Layout";
 import Cliente from "@/core/Cliente";
+import Botao from "@/components/Botao";
 
 export default function Home() {
   const clientes = [
@@ -25,6 +26,9 @@ export default function Home() {
       text-white
     `}>
       <Layout titulo="Cadastrino">
+          <div className="flex justify-end">
+            <Botao className="mb-4">Novo Cliente</Botao>
+          </div>
           <Tabela clientes={clientes} 
           clienteSelecionado={clienteSelecionado}
           clienteExcluido={clienteExcluido}

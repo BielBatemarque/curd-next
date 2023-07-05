@@ -5,6 +5,8 @@ import Botao from "./Botao";
 
 interface FormularioProps{
     cliente:Cliente
+    cancelado?: () => void
+    clienteMudou?: (cliente: Cliente) =>  void
 }
 
 export default function Formulario(props: FormularioProps){
@@ -21,10 +23,10 @@ export default function Formulario(props: FormularioProps){
             <Entrada texto="Idade" tipo="number" valor={idade} valorMudou={setIdade}/>
 
             <div className="flex mt-3 justify-end">
-               <Botao cor="blue" className="mr-2">
+               <Botao cor="blue" className="mr-2" onCick={() => props.clienteMudou?.(new Cliente(nome, +idade, id))}>
                     { id ? 'Alterar' : 'Salvar'}
                </Botao>
-               <Botao cor="gray" children={'Cancelar'}/>
+               <Botao cor="gray" children={'Cancelar'} onCick={props.cancelado}/>
             </div>
         </div>
     );

@@ -51,5 +51,5 @@ export default function useClientes(){
         selecionarCliente,
         obterTodos,
         exibirTabela,
-      }
+      };
 }
